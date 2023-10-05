@@ -155,9 +155,9 @@ class Debug{
 			$print .= PHP_EOL . Colors::black(Colors::red((!is_null($e) ? 'Crash s' : 'S') .'tack trace:', true)) . PHP_EOL;
 			
 			foreach($stacktrace as $k => $val){
-				$print .= Colors::black(Colors::blue("#$k", true)). (isset($val['function']) ? "\t". ($val['class'] ?? '') . ($val['type'] ?? '') .
+				$print .= Colors::black(Colors::blue("#$k", true)). (isset($val['function']) ? "    ". ($val['class'] ?? '') . ($val['type'] ?? '') .
 					($val['function'] . '(' . self::arg_to_str($val['args'] ?? [], true, self::$max_args) . ')' . PHP_EOL) : '');
-				$print .= "\t\tat ". (isset($val['file']) ? (Colors::bold_red($val['file']) .':'. Colors::white($val['line'])) : '{main}') . PHP_EOL . PHP_EOL;
+				$print .= "        at ". (isset($val['file']) ? (Colors::bold_red($val['file']) .':'. Colors::white($val['line'])) : '{main}') . PHP_EOL . PHP_EOL;
 			}
 			
 			$print .= PHP_EOL;
@@ -175,8 +175,8 @@ class Debug{
 		(self::$echo)(<<<EOF
 
 {$colors::black($colors::red($errno_str, true))}:
-	$errstr
-		at {$colors::bold_red($errfile)}:{$colors::white($errline)}
+    $errstr
+        at {$colors::bold_red($errfile)}:{$colors::white($errline)}
 
 
 EOF
