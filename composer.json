@@ -1,0 +1,11 @@
+{
+    "name": "foul11/p-libs",
+    "type": "library",
+    "require": {},
+	"autoload": {
+		"psr-4": {
+			"foul11\\": "src/",
+			"Arturka\\": "src/"
+		}
+	}
+}
