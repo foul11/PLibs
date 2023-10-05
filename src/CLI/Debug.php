@@ -197,6 +197,11 @@ EOF
 		exit(1);
 	}
 	
+	public static function init(){
+		set_exception_handler([__CLASS__, 'handler_exception']);
+		set_error_handler([__CLASS__, 'handler_error']);
+	}
+	
 	public static function warn_trace($stat = null){
 		if(is_null($stat)) return self::$warn_trace;
 		if(is_bool($stat)) self::$warn_trace = $stat;
