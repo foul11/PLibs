@@ -10,6 +10,8 @@ use Arturka\CLI\EscapeColors as Colors;
 	
 */
 
+require_once('EscapeColors.php');
+
 class Debug{
 	private static $max_args = 7;
 	private static $max_array_args = 7;
