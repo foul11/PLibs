@@ -176,7 +176,7 @@ class Test{
 			if($val != '.' && $val != '..' && substr($val, 0, 1) != '@'){
 				$path = $dir .'/'. $val;
 				
-				if(is_dir($val)){
+				if(is_dir($path)){
 					self::executeFolder($path, $tests);
 				}elseif(substr($val, -4, 4) == '.php'){
 					self::executeFile($path, $tests);
