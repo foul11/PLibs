@@ -130,6 +130,9 @@ class Test{
 		foreach($argv as $k => $val){
 			if(!$k) continue;
 			
+			if($val == '--test')
+				unset($argv[$k]);
+			
 			if($val == '-f'){
 				self::$force = true;
 			}elseif(substr($val, -4, 4) == '.php'){
