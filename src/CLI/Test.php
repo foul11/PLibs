@@ -153,7 +153,7 @@ class Test{
 	}
 	
 	public static function executeFile($path, &$tests){
-		if(system("php ". self::$execPath .' '. (self::$force ? '-f ' : '') .'"'. $path. '"', $code) !== false){
+		if(system("php ". self::$execPath .' --test '. (self::$force ? '-f ' : '') .'"'. $path. '"', $code) !== false){
 			$msg = 'Test '. Colors::black(Colors::cyan("'". $path ."'", true)) .' ';
 			
 			if(!$code){
