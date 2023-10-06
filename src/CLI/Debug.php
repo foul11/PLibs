@@ -202,6 +202,13 @@ EOF
 	public static function init(){
 		set_exception_handler([__CLASS__, 'handler_exception']);
 		set_error_handler([__CLASS__, 'handler_error']);
+
+		register_shutdown_function(function(){
+			$e = error_get_last();
+			
+			if ($e)
+				self::handler_error($e['type'], $e['message'], $e['file'], $e['line']);
+		});
 	}
 	
 	public static function warn_trace($stat = null){
