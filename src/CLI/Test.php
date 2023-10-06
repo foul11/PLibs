@@ -186,6 +186,7 @@ class Test{
 	}
 	
 	public static function execute($path){
+		$path = rtrim($path, '/');
 		$tests = [];
 		
 		if(is_dir($path)){
