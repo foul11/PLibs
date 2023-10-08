@@ -250,6 +250,12 @@ EOF
 		}
 	}
 	
+	public static function var_export($dump, $level = 3, $paint = false){
+		if($level <= self::$debug_level){
+			self::debug(var_export($dump, true), $level, $paint);
+		}
+	}
+	
 	public static function print($str, $paint = false){ self::debug($str, 1, $paint); }
 	public static function error($str, $paint = false){ self::debug($str, 2, $paint); }
 	public static function notice($str, $paint = false){ self::debug($str, 3, $paint); }
